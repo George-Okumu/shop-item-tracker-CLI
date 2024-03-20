@@ -23,6 +23,7 @@ class Item():
         for row in select_all_items():
             item = cls(row[1], row[2], row[3], row[4])
             item.id = uuid.uuid4().__hash__()
+            item.created_at = row[5]
             item_list.append(item.__dict__)
                         
         return item_list

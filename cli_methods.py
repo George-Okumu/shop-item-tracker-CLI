@@ -9,9 +9,9 @@ def menu():
     print("2. See all categories")
 
 def print_items_neat(data):
-    rows = [[item['id'], item['name'], item['batch_number'], item['price'], item['category']] for item in data]
+    rows = [[item['id'], item['name'], item['batch_number'], item['price'], item['category'], item['created_at']] for item in data]
 
-    headers = ["ID", "Name", "Batch Number", "Price", "Category"]
+    headers = ["ID", "Name", "Batch Number", "Price", "Category", "Created On"]
 
     table = tabulate(rows, headers=headers, tablefmt="pretty")
     print(table)
