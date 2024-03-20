@@ -48,6 +48,3 @@ def select_all_items():
 def select_all_categories():
     return curs.execute(""" SELECT * FROM categories """).fetchall()
 
-select_all_items()
-create_table_categories()
-create_table_items()
