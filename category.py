@@ -6,3 +6,5 @@ class Category():
         self.name = name
         self.description = description
 
+    def __str__(self):
+            return f"Category ID: {self.id}, Name: {self.name}, Description: {self.description}"
