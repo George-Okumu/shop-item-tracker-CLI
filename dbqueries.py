@@ -13,14 +13,13 @@ def create_table_items():
 def create_table_categories():
     curs.execute(
         """
-            CREATE TABLE IF NOT EXISTS categories (id integer primary key, name varchar(32), description TEXT, created_at timestamp)
+            CREATE TABLE IF NOT EXISTS categories (id integer primary key, name varchar(32), description TEXT, created_at timestamp default CURRENT_TIMESTAMP )
 
     """
     )
     
     con.commit()
     
-
     
     
 create_table_categories()
