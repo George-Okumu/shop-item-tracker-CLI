@@ -12,8 +12,8 @@ class Category():
         
     def save(self):
         insert_categories(self.name, self.description)
-    
-      
+        
+        
     @classmethod
     def get_all_items(cls):
         category_list = []
