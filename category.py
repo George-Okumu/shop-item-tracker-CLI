@@ -1,5 +1,5 @@
 import uuid
-from dbqueries import insert_categories
+from dbqueries import insert_categories, select_all_categories
 
 class Category():
     def __init__(self, name, description) -> None:
@@ -12,3 +12,14 @@ class Category():
         
     def save(self):
         insert_categories(self.name, self.description)
+    
+      
+    @classmethod
+    def get_all_items(cls):
+        category_list = []
+        for row in select_all_categories():
+            item = cls(row[1], row[2])
+            item.id = uuid.uuid4().__hash__()
+            category_list.append(item.__dict__)
+                        
+        return category_list

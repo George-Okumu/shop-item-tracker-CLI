@@ -1,5 +1,5 @@
 import uuid
-from dbqueries import insert_items
+from dbqueries import insert_items, select_all_items
 
 class Item():
     def __init__(self, name, batch_number, price, category) -> None:
@@ -15,5 +15,14 @@ class Item():
     
     def save(self):
         insert_items(self.name, self.batch_number, self.price, self.category)
-        
     
+    # return list mapped in dict
+    @classmethod
+    def get_all_items(cls):
+        item_list = []
+        for row in select_all_items():
+            item = cls(row[1], row[2], row[3], row[4])
+            item.id = uuid.uuid4().__hash__()
+            item_list.append(item.__dict__)
+                        
+        return item_list
