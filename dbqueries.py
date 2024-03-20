@@ -39,9 +39,11 @@ def insert_categories(name, description):
     )
     
     con.commit()
-    
+
+
 def select_all_items():
-    return curs.execute(""" SELECT * FROM items """).fetchall()
+    return curs.execute(""" SELECT i.id, i.name, i.batch_number, i.price, c.name, i.created_at FROM items i LEFT JOIN categories c on i.category_id = c.id""").fetchall()
+
 
 def select_all_categories():
     return curs.execute(""" SELECT * FROM categories """).fetchall()
