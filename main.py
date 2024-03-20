@@ -1,4 +1,4 @@
-from cli_methods import menu, exit, print_all_items, print_all_categories
+from cli_methods import menu, exit, print_all_items, print_all_categories, get_item_details_from_cli, get_category_details_from_cli
 
 
 class welcome():
@@ -6,7 +6,6 @@ class welcome():
     
     def main():
         while True:
-            
             menu()
             choice = input("> ")
             if choice == "0":
@@ -15,10 +14,11 @@ class welcome():
                 print_all_items()
             elif choice == "2":
                 print_all_categories()
+            elif choice == "3":
+                get_category_details_from_cli()
+            elif choice == "4":
+                get_item_details_from_cli()
             else:
                 print("Invalid choice")
-
-
-
-    if __name__ == "__main__":
-        main()
+                
+    main()
