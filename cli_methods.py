@@ -11,9 +11,9 @@ def menu():
     print("4: Add stock")
 
 def print_items_neat(data):
-    rows = [[item['id'], item['name'], item['batch_number'], item['price'], item['category'], item['created_at']] for item in data]
+    rows = [[item['id'], item['name'], item['batch_number'], item['price'], item['category'],item['quantity'],item['price_per_piece'],item['unit'], item['created_at']] for item in data]
 
-    headers = ["ID", "Name", "Batch Number", "Price", "Category", "Created On"]
+    headers = ["ID", "Name", "Batch Number", "Price", "Unit","Quantity", "Price Per Piece","Category",  "Created On"]
 
     table = tabulate(rows, headers=headers, tablefmt="pretty")
     print(table)
@@ -34,16 +34,18 @@ def print_all_categories():
     print_categories_neat(Category.get_all_items())
     
 def get_item_details_from_cli():
-    name = input("Enter item name: ")
-    batch = input("Enter batch number: ")
-    price = float(input("Enter price: ")) 
+    name = input("Enter item name: ").capitalize()
+    batch = input("Enter batch number: ").upper()
+    price = float(input("Enter price: "))
+    quan = input("Enter item quantity: ")
+    price_per_each = input("Enter Price per each item: ")
+    unit = input("Enter unit of measure: ").upper()
     cat = input("Enter category: ")
-    add_stock(name, batch, price, cat)
+    add_stock(name, batch, price,quan, price_per_each,cat, unit)
     
-def add_stock(name, batch, price, cat):
-    item = Item(name=name, batch_number=batch, price=price, category=cat)
+def add_stock(name, batch, price,quan, price_per_each, cat, unit):
+    item = Item(name=name, batch_number=batch, price=price,quantity=quan, price_per_piece=price_per_each, category=cat, unit=unit)
     item.save()
-    print("Stock added successfully")
 
 def get_category_details_from_cli():
     name = input("Enter category name: ")
