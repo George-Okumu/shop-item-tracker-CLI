@@ -40,5 +40,12 @@ def insert_categories(name, description):
     
     con.commit()
     
+def select_all_items():
+    return curs.execute(""" SELECT * FROM items """).fetchall()
+
+def select_all_categories():
+    return curs.execute(""" SELECT * FROM categories """).fetchall()
+
+select_all_items()
 create_table_categories()
 create_table_items()
