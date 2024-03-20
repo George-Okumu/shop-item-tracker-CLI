@@ -55,5 +55,3 @@ def select_all_items():
 def select_all_categories():
     return curs.execute(""" SELECT * FROM categories """).fetchall()
 
-
-create_table_items()
