@@ -33,7 +33,31 @@ def print_all_categories():
     print("Below are available category:")
     print_categories_neat(Category.get_all_items())
     
+def get_item_details_from_cli():
+    name = input("Enter item name: ")
+    batch = input("Enter batch number: ")
+    price = float(input("Enter price: ")) 
+    cat = input("Enter category: ")
+    add_stock(name, batch, price, cat)
+    
+def add_stock(name, batch, price, cat):
+    item = Item(name=name, batch_number=batch, price=price, category=cat)
+    item.save()
+    print("Stock added successfully")
+
+def get_category_details_from_cli():
+    name = input("Enter category name: ")
+    descr = input("Provide a brief description of this category: ") 
+    add_category(name, descr)
+    
+def add_category(name, descr):
+    cat = Category(name=name, description=descr)
+    cat.save()
+    print("Category saved successfully")
+    print("                                     ")
+    print("                                     ")
+    
     
 def exit():
     print("Thank you for interacting with Duka. We make sure your stock is always recorded.")
-    exit()
+    quit()
