@@ -1,9 +1,10 @@
 <h1>MyDuka Item Tracker CLI</h1>
-<small> Track your duka stock through a very simple CLI </small>
 
-[![Watch the video](utils/dukacli.png)](utils/clidemo.mp4)
+<small> Track your duka stock through a straightforward CLI </small>
 
+<quote>Watch video below</quote>
 
+https://github.com/George-Okumu/shop-item-tracker-CLI/assets/62925150/2486280a-3ca7-462b-b318-f9368f07018a
 
 <h2>Pre-requisites</h2>
 
