@@ -7,6 +7,8 @@ def menu():
     print("0. Exit the program")
     print("1. See all stock")
     print("2. See all categories")
+    print("3: Add Category")
+    print("4: Add stock")
 
 def print_items_neat(data):
     rows = [[item['id'], item['name'], item['batch_number'], item['price'], item['category'], item['created_at']] for item in data]
