@@ -1,5 +1,5 @@
 import uuid
-from dbqueries import save_items
+from dbqueries import insert_items
 
 class Item():
     def __init__(self, name, batch_number, price, category) -> None:
@@ -14,6 +14,6 @@ class Item():
     
     
     def save(self):
-        save_items(self.name, self.batch_number, self.price, self.category)
+        insert_items(self.name, self.batch_number, self.price, self.category)
         
     
