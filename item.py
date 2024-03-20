@@ -1,4 +1,5 @@
 import uuid
+from dbqueries import save_items
 
 class Item():
     def __init__(self, name, batch_number, price, category) -> None:
@@ -10,3 +11,9 @@ class Item():
 
     def __str__(self):
             return f"Item ID: {self.id}, Name: {self.name}, Batch Number: {self.batch_number}, Price: ${self.price}, Category: {self.category}"
+    
+    
+    def save(self):
+        save_items(self.name, self.batch_number, self.price, self.category)
+        
+    
